@@ -24,8 +24,26 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Release
-        run: npx semantic-release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          semantic_version: 16
+          # you can set branches for semantic-release above v16.
+          branches: |
+            [
+              '+([0-9])?(.{+([0-9]),x}).x',
+              'main',
+              'next',
+              'next-major',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub automatically creates this token
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Your npm token for authentication with npm registry
