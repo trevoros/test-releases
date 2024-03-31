@@ -46,4 +46,4 @@ jobs:
             ]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub automatically creates this token
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Your npm token for authentication with npm registry
+          NPM_TOKEN: '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' # Your npm token for authentication with npm registry
