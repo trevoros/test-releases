@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/trevoros/test-releases#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "semantic-release": "^23.0.6"
   }
 }
