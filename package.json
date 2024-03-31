@@ -42,12 +42,7 @@
       ]
     ],
     "branches": [
-      "canary",
-      {
-        "name": "main",
-        "prerelease": true,
-        "channel": "beta"
-      }
+      "main"
     ]
   }
 }
