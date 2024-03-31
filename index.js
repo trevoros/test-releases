@@ -1,4 +1,4 @@
-// Import the express library
+// Import the express library.
 const express = require('express'); 
 
 // Create an instance of express
