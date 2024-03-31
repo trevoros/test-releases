@@ -32,7 +32,7 @@ jobs:
           # you can set branches for semantic-release above v16.
           branches: |
             [
-              main,
+              'main',
               {
                 name: 'beta',
                 prerelease: true
