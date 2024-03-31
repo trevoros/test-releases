@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "semantic-release": "^23.0.6"
+  },
+  "devDependencies": {
+    "lerna": "^8.1.2"
   }
 }
