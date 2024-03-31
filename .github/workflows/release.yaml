@@ -11,43 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # It's important to fetch all history for Semantic Release to work
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '20' # Use the Node.js version compatible with your project
-          registry-url: 'https://registry.npmjs.org/'
 
       - name: Install Dependencies
         run: npm ci
 
-      - name: "Setup npm"
-        run: |
-          npm set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
-
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
-        with:
-          semantic_version: 16
-          # you can set branches for semantic-release above v16.
-          branches: |
-            [
-              '+([0-9])?(.{+([0-9]),x}).x',
-              'main',
-              'next',
-              'next-major',
-              {
-                name: 'beta',
-                prerelease: true
-              },
-              {
-                name: 'alpha',
-                prerelease: true
-              }
-            ]
+      - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub automatically creates this token
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Your npm token for authentication with npm registry
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
