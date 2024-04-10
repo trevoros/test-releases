@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   release:
-    environment: prod
+    #environment: prod
     name: Semantic Release
     runs-on: ubuntu-latest
     steps:
