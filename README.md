@@ -1,2 +1,2 @@
 # test-releases
-with github actions!
+with github actions
